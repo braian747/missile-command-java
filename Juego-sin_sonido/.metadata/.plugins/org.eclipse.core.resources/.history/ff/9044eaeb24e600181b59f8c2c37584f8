@@ -1,0 +1,155 @@
+package gestor;
+import java.util.ArrayList;
+
+import estructuras.Estructura;
+import jugadores.Enemigo;
+import jugadores.Jugador;
+import misiles.Misil;
+import misiles.MisilKrytoliano;
+
+public class Observador {
+	private static Observador instancia=new Observador();
+	private Observador(){
+	}
+	public static Observador getInstancia(){
+		return Observador.instancia;
+	}
+
+
+
+	public void destruccionMisil() {
+		ArrayList<Misil> mabDestruidos=new ArrayList<Misil>();
+		ArrayList<Misil> mbiDestruidos=new ArrayList<Misil>();
+		ArrayList<Coordenada> elim=new ArrayList<Coordenada>();
+		for(MisilKrytoliano mk:Enemigo.getInstancia().getArregloMisiles()) {//para cada misil enemigo comprueba si choco con algon misil de jugador
+			for(Misil mab:Jugador.getInstancia().getMisilesDisparados()) {
+				if((distanciaEntreDosPuntos(mk.getActual(),mab.getActual()))<=(mk.getRadio()-mab.getRadio()+10)){//la resta de radios siempre da cero,por eso no entra, igual hay que comparar con el radio de la explosion
+					mbiDestruidos.add(mk);
+					mabDestruidos.add(mab);
+					Juego.getInstancia().getDibujables().remove(mab);
+					Juego.getInstancia().getDibujables().remove(mk);
+					for(Coordenada c: mk.getEstela().getEstela()){
+						elim.add(c);
+						Juego.getInstancia().getDibujables().remove(c);
+					}
+					for(Coordenada c: mab.getEstela().getEstela()){
+						elim.add(c);
+						Juego.getInstancia().getDibujables().remove(c);
+					}
+					Puntaje.getInstancia().setMbiDestruidos(mbiDestruidos.size()+Puntaje.getInstancia().getMbiDestruidos());
+				}
+
+			}	
+			if((distanciaEntreDosPuntos(mk.getActual(), mk.getDestino())<= 8)) {//si el misil no choco con una estructura igual tiene que desaparecer cuando llega al final.no funciona bien xd
+				mbiDestruidos.add(mk);
+				Juego.getInstancia().getDibujables().remove(mk);
+				for(Coordenada c: mk.getEstela().getEstela()){
+					elim.add(c);
+					Juego.getInstancia().getDibujables().remove(c);
+				}
+			}
+			for (Coordenada e:elim){
+				mk.getEstela().getEstela().remove(e);
+			}
+		}
+		for (Misil e:mabDestruidos){
+			Jugador.getInstancia().getMisilesDisparados().remove(e) ;
+		}
+		
+
+		for (Misil e:mbiDestruidos){
+			Enemigo.getInstancia().getArregloMisiles().remove(e);
+		}
+		
+	}
+	public void destruccionEstructura() {
+		ArrayList<Misil> eliminables=new ArrayList<Misil>();
+		ArrayList<Coordenada> elim=new ArrayList<Coordenada>();
+		for(MisilKrytoliano mk:Enemigo.getInstancia().getArregloMisiles()) {//para cada misil comprueba si choco con una estructura
+			for (Estructura c: Juego.getInstancia().getCiudades())  {//choque con ciudades
+				if((distanciaEntreDosPuntos(mk.getActual(),c.getPos()))<=(c.getRadio()-mk.getRadio())){
+					Juego.getInstancia().getCiudades().remove(c);
+					eliminables.add(mk);
+					Juego.getInstancia().getDibujables().remove(c);
+					Juego.getInstancia().getDibujables().remove(mk);
+					for(Coordenada coord: mk.getEstela().getEstela()){
+						elim.add(coord);
+						Juego.getInstancia().getDibujables().remove(coord);
+						Juego.getInstancia().setBonusCity(c.getPos());
+					}
+					break;
+				}
+			
+			}
+			for (Estructura b: Juego.getInstancia().getBases())  {//choque con bases
+				if((distanciaEntreDosPuntos(mk.getActual(),b.getPos()))<=(b.getRadio()-mk.getRadio())){
+					Juego.getInstancia().getBases().remove(b);
+					eliminables.add(mk);
+					Juego.getInstancia().getDibujables().remove(b);
+					Juego.getInstancia().getDibujables().remove(mk);
+					for(Coordenada c: mk.getEstela().getEstela()){
+						elim.add(c);
+						Juego.getInstancia().getDibujables().remove(c);
+					}
+					break;
+				}
+			
+			}
+			
+			for (Coordenada e:elim){
+				mk.getEstela().getEstela().remove(e);
+			}
+		}
+		for (Misil e:eliminables){
+			Enemigo.getInstancia().getArregloMisiles().remove(e);
+		
+		}
+		
+	}
+	public void limpiarPantalla() {
+		ArrayList<Misil> eliminables=new ArrayList<Misil>();
+		ArrayList<Coordenada> elim=new ArrayList<Coordenada>();
+		for(Misil mab: Jugador.getInstancia().getMisilesDisparados()) {
+			eliminables.add(mab);
+			Juego.getInstancia().getDibujables().remove(mab);
+			for(Coordenada c:mab.getEstela().getEstela()) {
+				elim.add(c);
+				Juego.getInstancia().getDibujables().remove(c);
+			}
+			for (Coordenada e:elim){
+				mab.getEstela().getEstela().remove(e);
+			}
+		}
+	
+	for (Misil e:eliminables){
+		Jugador.getInstancia().getMisilesDisparados().remove(e);
+	
+	}
+	}
+	public double distanciaEntreDosPuntos(Coordenada c1, Coordenada c2){
+		  return Math.sqrt(Math.pow(c2.getX()-c1.getX(), 2)+Math.pow(c2.getY()-c1.getY(), 2));
+		}
+	public void moverMisiles() {
+		for(MisilKrytoliano i:Enemigo.getInstancia().getArregloMisiles()) {
+			i.setActual(i.mover());
+		}
+		for(Misil m:Jugador.getInstancia().getMisilesDisparados()) {
+			m.setActual(m.mover());
+			}
+		}
+	
+	public void comprobarColisiones() {
+			destruccionEstructura();
+			destruccionMisil();
+		
+	}
+	
+	public void actualizar() {
+		moverMisiles();
+		if (Enemigo.getInstancia().getB()!=null) {
+			Enemigo.getInstancia().getB().mover();
+		}
+		comprobarColisiones();
+		
+	}
+}

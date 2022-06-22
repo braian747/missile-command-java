@@ -1,0 +1,53 @@
+package misiles;
+
+import gestor.Nivel;
+import taller2.grafico.Dibujable;
+import taller2.grafico.InformacionDibujable;
+
+public class Bombardero implements Dibujable {
+	private int altura=100; //altura inicial
+	private int posX; //posX donde va a disparar el misil
+	private String nombre;
+	
+	
+	public int getAltura() {
+		return altura;
+	}
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+	public int getPosX() {
+		return posX;
+	}
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Bombardero(String nombre) {
+		if (altura>400) {
+			this.altura=400;
+		}
+		else {
+			this.altura = altura+((Nivel.getInstancia().getNumNivel())*10);
+		}
+		this.altura = altura;
+		this.posX = (int)(Math.random() * 525 + 15);
+		this.nombre = nombre;
+	}
+	public void mover() {
+		
+	}
+	public void disparar() {
+		
+	}
+	@Override
+	public InformacionDibujable getInformacionDibujable() {
+		InformacionDibujable d= new InformacionDibujable(posX,altura,'b');		
+		return d;
+	}
+}

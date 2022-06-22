@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\braia\OneDrive\Escritorio\programacion\JUEGO - sin errores\MISSILE COMMAND\Juego - sin sonido\.metadata\.plugins\org.eclipse.jdt.core
+1509799344.index
+154401926.index
+1865797976.index
+2637805523.index

@@ -1,0 +1,11 @@
+package gestor;
+public class MissileCommand {
+
+	public static void main(String[] args) {
+		//Juego.getInstancia().inicializar();
+		//Juego.getInstancia().gameLoop();
+		VentanaPrincipal v1=new VentanaPrincipal();
+		
+	}
+
+}

@@ -1,0 +1,187 @@
+                                
+                                            MISSILE COMMAND      
+                         
+  Missile Command es un juego de arcade de 1980 de Atari. Es un juego muy 
+  popular que combina diversión con un mensaje sobre los peligros de la 
+  guerra. Originalmente  llamado ‘Armageddon', Missile Command fue diseñado
+  durante la época de la “guerra fría” entre Estados Unidos y Rusia.
+        
+                                               LA HISTORIA
+
+  Aliens del planeta Krytol han comenzado un ataque sobre el planeta Zardon. 
+  Los Krytolianos son guerreros que buscan destruir y aprovecharse el planeta
+  Zardon. Zardon es el último de los planetas pacíficos. Los Zardonianos son 
+  personas hábiles y trabajadoras, ellos mismos construyeron sus ciudades y 
+  son ricas en recursos. Además, Zardon es realmente un planeta libre de 
+  crímenes y violencia.
+  
+  Zardon ha construido un sistema de defensa poderoso. Varias bases de 
+  misiles antibalìsticos han sido establecidas dentro de las ciudades de 
+  Zardon. Los Zardonianos están listos para un ataque, y estàn preparados 
+  para pelear -si es necesario- para salvar sus ciudades.
+
+  Como comandante de la base, es tu responsabilidad proteger y defender las 
+  6 ciudades del planeta de Zardon. Los Krytolianos han empezado a disparar 
+  misiles balìsticos interplanetarios, están apuntando a tus ciudades y hacia
+  tus 3 bases de misiles: Alpha, Delta y Omega. Tu única defensa es devolver 
+  el fuego con misiles antibalìsticos. Pero, ¡cuidado!, los Krytolianos son 
+  astutos, también tienen misiles crucero. Los misiles crucero se ven como 
+  satélites, pero son tan dañinos como los misiles balísticos 
+  interplanetarios.
+
+  Deberás usar tus misiles antibalísticos (MABs) para detener al enemigo, 
+  antes que tu alegre y armonioso planeta sea destruido.
+
+                                                EL JUEGO
+
+  El objetivo del juego es defender tus ciudades y bases de misiles, El 
+  enemigo dispara misiles balísticos interplanetarios (MBI) y misiles 
+  crucero, ambos tienen como objetivo destruir tus ciudades y bases militares
+  Hay 2 tipos de misil crucero: misiles cruceros tontos (que caen en línea 
+  recta) y misiles crucero inteligentes, los cuales tratarán de evadir tus 
+  misiles antibalísticos (MABs). 
+
+  El enemigo ataca en una serie de oleadas que puede variar en el número de 
+  misiles balísticos interplanetarios que atacan. Cada oleada de misiles se 
+  mueve más rápido que la oleada anterior. Mientras más rápida es la oleada, 
+  más difícil es defender las ciudades. Por este motivo, mientras más rápida 
+  es la oleada, más alto será el puntaje ganado. 
+
+  Con cada oleada, tenés 30 MABs para defenderte, 10 en cada uno de los silos,
+  los cuales están ubicados en la parte inferior de la pantalla, a la izquierda,
+  al centro y a la derecha. Una vez que has disparado los 30 MABs, estarás 
+  indefenso hasta que comience una nueva oleada.
+
+  Cada vez que un MAB llega a su destino o alcanza algún misil enemigo 
+  ocurre una explosión. La onda expansiva de esta explosión puede ocasionar 
+  que otros misiles balísticos interplanetarios o crucero que se encuentran 
+  en la zona de impacto también sean destruidos. Si la explosión del MAB no 
+  alcanza la cabeza del misil, éste seguirá con su trayectoria, sólo se 
+  verá afectada la estela que deja a su paso.
+
+  Debes tener en cuenta que hay un umbral (línea horizontal imaginaria) en 
+  el campo de juego, debajo de la cual no podrás disparar misiles. De esta 
+  manera se protege a los silos y las ciudades de la autodestrucción.
+
+  Si logras sobrevivir a la oleada, pasarás al siguiente nivel. El juego 
+  finaliza cuando todas las ciudades son destruidas.
+
+                                     LOS MISILES KRYTOLIANOS
+
+  Misil Balístico Interplanetario de trayectoria recta: aparecen en todos 
+  los niveles tratando de atacar las ciudades zardonianas y los silos 
+  de misiles. Siguen una trayectoria recta hacia uno de los silos o ciudades, 
+  y a partir del nivel 3, luego de llegar cierta altura mínima se bifurcan 
+  en dos o más misiles balísticos interplanetarios.
+  
+  Satélite: es un bombardero. Tiene una forma circular, y ataca disparando 2 
+  o más misiles balísticos interplanetarios de trayectoria recta a partir del 
+  nivel 2 del juego. A medida que se avanza en los niveles, aparece cada vez 
+  más cerca de las ciudades (más abajo).
+
+  Avión: es un bombardero. Como su nombre lo indica tiene la forma de un 
+  avión y ataca disparando 2 o más misiles balísticos interplanetarios de 
+  trayectoria recta a partir del nivel 2 del juego. A medida que se avanza 
+  en los niveles, aparece cada vez más cerca de las ciudades.
+
+  Misil crucero tonto: Es una pequeña esfera con puntas que cae en línea 
+  recta de la misma manera que los misiles balísticos interplanetarios de 
+  trayectoria recta.
+
+  Misil crucero inteligente: Se ve exactamente igual que un misil crucero 
+  tonto, pero es capaz de esquivar las explosiones cercanas a éste. Es decir, 
+  una vez que detecta una explosión, se mueve a derecha o izquierda alejándose
+  de la onda expansiva de la explosión. Un misil crucero inteligente tiene 
+  un sensor que barre una semicircunferencia hacia abajo de radio igual al 
+  de la explosión de un MAB, y es capaz de detectar cualquier MAB o 
+  explosión en el área de esa semicircunferencia. Esta semicircunferencia es 
+  siempre “hacia abajo”: Un misil crucero inteligente no detectará un MAB 
+  que explotara cerca de ella pero por arriba. Cuando el sensor de un misil 
+  crucero inteligente detecta un misil que va a explotar o una explosión, 
+  cambia de dirección tratando de escapar del área de la explosión, y luego 
+  retoma su objetivo.
+
+                                                  PUNTAJE
+
+  Ganarás puntuación cuando destruyas misiles balístico interplanetarios y 
+  misiles crucero. También podés sumar puntaje por los misiles antibalísticos 
+  no usados y ciudades salvadas. Dado que cada oleada de misiles balísticos 
+  interplanetarios se mueve más rápido, el puntaje ganado también será mayor.
+  Por ejemplo, oleadas 9 y 10 valen 5 veces el puntaje original. 
+
+  Los puntos se anotan de la siguiente manera:
+
+             Objetivos:                		|      Puntaje:
+  Misiles balísticos interplanetarios	|   25 puntos por misil
+  Misiles crucero enemigos            	|  125 puntos por misil
+  Misiles antibalísticos sin usar     	|     5 puntos por misil
+  Ciudades salvadas                   	|  100 puntos por ciudad
+  Bombardero                          		|    25 puntos por misil
+
+  Por otro lado, anteriormente se mencionó que a medida que el juego avanza, 
+  las oleadas atacan más rápidamente, lo que influye en el puntaje obtenido, 
+  a continuación la tabla de progreso de los puntajes:
+
+     Nivel:   	|         Puntaje:
+  1-2        	|     Puntaje simple
+  3-4        	|     Puntaje x2
+  5-6        	|     Puntaje x3
+  7-8        	|     Puntaje x4
+  9-10      	|     Puntaje x5
+  11 y más   	|     Puntaje x6
+  
+  Entre los consecutivos niveles, las ciudades caen y se levantan nuevamente 
+  (cuando la siguiente oleada empieza). Un bonus por ciudades (bonus city) 
+  es ganado cada 10000 puntos. Es decir, si tu puntuación alcanza 10000 al 
+  final de la oleada y las 6 ciudades son destruidas, aún así se recibirás 
+  el bonus city (una ciudad como sobreviviente al ataque) y otra oleada de 
+  misiles balísticos interplanetarios atacará.
+     
+                                              CONSEJOS
+
+  - Usa los silos de misiles laterales (Alfa y Omega) para destruir los 
+   misiles cuando estén más arriba, y guarde el silo de misiles central 
+   (Delta) para cuando los misiles estén más cerca y necesiten más atención 
+   inmediata.
+  - Apunta justo frente a misiles, satélites y bombarderos, y deja que viajen 
+   hacia tus explosivos MABs. Tan pronto como haya  marcado el objetivo para
+   la detonación del misil, mueva el cursor a otro objetivo. No esperes la 
+   explosión.
+  - Golpea a los bombarderos y satélites enemigos antes de que puedan lanzar 
+   misiles. Además, cuanto antes los destruyas, más pronto reaparecerán y 
+   más puntos podrás anotar. Incluso puedes lanzar un MAB "de seguridad" 
+   en los lados izquierdo y derecho de la pantalla incluso antes de que 
+   aparezca un bombardero o un satélite, en la posibilidad de que uno viaje 
+   hacia la explosión del MAB.
+  - Golpea misiles antes de que se dividan en múltiples ramas. Si notas que 
+   un misil se ha fragmentado en múltiples ramas, trata de destruir tantos 
+   como sea posible con una sola explosión del MAB.
+  - Golpea a las bombas inteligentes, ya que están diseñadas para evadir tus 
+   ataques con MABs. Si no eres bueno en los golpes directos, prueba 
+   rodear a los misiles inteligentes con detonaciones.
+  - Golpea a los objetivos antes de que crucen la línea del umbral. Ya que no 
+   puedes disparar debajo de esta línea, cualquier misil enemigo que lo 
+   cruce está más allá del rango de tus MABs.
+  - No desperdicies los MABs en misiles enemigos que se dirigen a la tierra 
+   (cráteres de bombas o sitios vacíos). Defiende tu base de misiles y ciudades
+   primero. Si todas tus ciudades son destruidas o estás a punto de ganar una
+   ciudad extra, entonces es una buena estrategia ir a por los objetivos de 
+   puntaje alto como los misiles inteligentes, incluso si se dirigen a la 
+   tierra.
+  - No dejes que las bombas inteligentes te distraigan. A veces puedes 
+   concentrarte tanto en destruir bombas inteligentes que te olvidas de 
+   defender tu planeta. Recuerda que un misil inteligente solo puede golpear 
+   un objetivo.
+  - A medida que las olas se vuelven más difíciles, puede ser obligado a 
+   sacrificar algunas ciudades. Elige la izquierda o la derecha, y abandona 
+   las ciudades del otro lado. Cuando las olas se vuelven realmente difíciles,
+   es posible que tengas que defender solo una ciudad e ir a por tantos 
+   objetivos de puntaje alto como sea posible.
+  - Protege tus ciudades con un "paraguas de misiles". Esto es una línea de 
+   explosiones de MABs repartidas por la pantalla para atrapar y destruir a 
+   los misiles enemigos que se aproximen. Para generar un paraguas de 
+   misiles, mueva el cursor rápidamente por la pantalla, justo debajo de
+   los misiles enemigos y deje una cadena de marcas de detonación. Espacie 
+   las marcas lo suficientemente cerca como para formar una cadena de 
+   explosiones debajo de los objetivos enemigos. Si es posible, extienda el 
+   paraguas de misiles en el camino de un bombardero o satélite.

@@ -1,0 +1,148 @@
+package gestor;
+import java.util.ArrayList;
+import java.util.List;
+
+import estructuras.Base;
+import estructuras.Ciudad;
+import jugadores.Enemigo;
+import jugadores.Jugador;
+import taller2.grafico.Dibujable;
+import taller2.modelo.Graficador;
+
+public class Juego {
+	private Juego () {
+	}
+	
+	private static Juego instancia=new Juego();
+	private ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
+	private ArrayList<Base> bases = new ArrayList<Base>();
+	private List<Dibujable> dibujables= new ArrayList<Dibujable>();
+	private Coordenada bonusCity;
+	public void inicializar() {
+		Puntaje.getInstancia().inicializarPuntajes();
+		Coordenada c1=new Coordenada(10,520);
+		Base alpha=new Base(c1,"Alpha");
+		bases.add(alpha); 
+		Coordenada c2=new Coordenada(260,520);
+		Base delta=new Base(c2,"Delta");
+		bases.add(delta);
+		Coordenada c3=new Coordenada(525,520);
+		Base omega=new Base(c3,"Omega");
+		bases.add(omega);
+		dibujables.add(alpha);
+		dibujables.add(delta);
+		dibujables.add(omega);
+		Coordenada c4=new Coordenada(60,520);
+		Ciudad ciu1=new Ciudad(c4);
+		ciudades.add(ciu1);
+		Coordenada c5=new Coordenada(130,520);
+		Ciudad ciu2=new Ciudad (c5);
+		ciudades.add(ciu2);
+		Coordenada c6=new Coordenada(200,520);
+		Ciudad ciu3=new Ciudad(c6);
+		ciudades.add(ciu3);
+		Coordenada c7=new Coordenada(320,520);
+		Ciudad ciu4=new Ciudad(c7);
+		ciudades.add(ciu4);
+		Coordenada c8=new Coordenada(390,520);
+		Ciudad ciu5=new Ciudad(c8);
+		ciudades.add(ciu5);
+		Coordenada c9=new Coordenada(460,520);
+		Ciudad ciu6=new Ciudad(c9);
+		ciudades.add(ciu6);	
+		dibujables.add(ciu1);
+		dibujables.add(ciu2);
+		dibujables.add(ciu3);
+		dibujables.add(ciu4);
+		dibujables.add(ciu5);
+		dibujables.add(ciu6);
+	}	
+	
+	public Coordenada getBonusCity() {
+		return bonusCity;
+	}
+
+	public void setBonusCity(Coordenada bonusCity) {
+		this.bonusCity = bonusCity;
+	}
+
+	public List<Dibujable> getDibujables() {
+		return dibujables;
+	}
+
+	public void setDibujables(List<Dibujable> dibujables) {
+		this.dibujables = dibujables;
+	}
+
+	public ArrayList<Base> getBases() {
+		return bases;
+	}
+
+	public void setBases(ArrayList<Base> bases) {
+		this.bases = bases;
+	}
+
+	public ArrayList<Ciudad> getCiudades() {
+		return ciudades;
+	}
+	public void setCiudades(ArrayList<Ciudad> ciudades) {
+		this.ciudades = ciudades;
+	}
+	public void gameLoop()	{
+			if (!Enemigo.getInstancia().getArregloMisiles().isEmpty() || Enemigo.getInstancia().getCantM()!=0) {
+				Jugador.getInstancia().disparar();
+				Enemigo.getInstancia().atacar(Controlador.getInstancia().getCiclo());
+				Observador.getInstancia().actualizar();
+				Controlador.getInstancia().setCiclo(Controlador.getInstancia().getCiclo()+1);
+			}
+	}
+	public  void nuevoNivel(int n,int control) {
+		if(Puntaje.getInstancia().getPuntajeTotal()>=10000&& (ciudades.size()<6)){
+			Ciudad c=new Ciudad(bonusCity);
+			ciudades.add(c);
+		}
+		Puntaje.getInstancia().inicializarPuntajes();
+		Nivel.getInstancia().setNumNivel(Nivel.getInstancia().getNumNivel()+1);
+		Observador.getInstancia().limpiarPantalla();
+		Nivel.getInstancia().setVelMBI(Nivel.getInstancia().getVelMBI()+1);
+		for(Base b:this.bases) {
+			this.dibujables.remove(b);
+		}
+		this.bases.clear();
+		Coordenada c1=new Coordenada(10,520);
+		Base alpha=new Base(c1,"Alpha");
+		bases.add(alpha); 
+		Coordenada c2=new Coordenada(260,520);
+		Base delta=new Base(c2,"Delta");
+		bases.add(delta);
+		Coordenada c3=new Coordenada(525,520);
+		Base omega=new Base(c3,"Omega");
+		bases.add(omega);
+		dibujables.add(alpha);
+		dibujables.add(delta);
+		dibujables.add(omega);
+		Nivel.getInstancia().setNumNivel(n);
+		if (control<=2) {
+			Nivel.getInstancia().setMci(false);
+			Nivel.getInstancia().setMct(true);
+		}
+		else {
+			if(control<=4) {
+				Nivel.getInstancia().setMci(true);
+				Nivel.getInstancia().setMct(false);
+			}
+			else {
+				control=1;
+				Nivel.getInstancia().setMci(false);
+				Nivel.getInstancia().setMct(true);
+			}
+		}
+	}
+
+
+	public void fin() {
+	}
+	public static Juego getInstancia() {
+		return Juego.instancia;
+	}
+}

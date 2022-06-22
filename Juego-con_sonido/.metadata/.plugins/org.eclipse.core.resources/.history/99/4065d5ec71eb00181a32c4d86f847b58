@@ -1,0 +1,57 @@
+package gestor;
+
+import java.awt.Graphics;
+import java.net.PasswordAuthentication;
+
+import Interfaz.PanelJuego;
+import Interfaz.VentanaPrincipal;
+import jugadores.Enemigo;
+import jugadores.Jugador;
+import taller2.modelo.Graficador;
+//la unica razon por la que existe el controlador es para tener un intermedio entre el codigo y la parte grafica 
+public class Controlador extends Thread{
+	private int ciclo=0;
+	private int control=1;
+public int getCiclo() {
+		return ciclo;
+	}
+	public void setCiclo(int ciclo) {
+		this.ciclo = ciclo;
+	}
+
+private static Controlador instancia=new Controlador();
+private Controlador(){
+	
+}
+public void run(){
+	Juego.getInstancia().inicializar();
+	Enemigo.getInstancia().inicializarCantMisiles();
+	//while (!Juego.getInstancia().getCiudades().isEmpty()) {
+		System.out.println("llega ");
+		Juego.getInstancia().gameLoop();
+		PanelJuego.getInstancia().repaint();
+		try {
+			Thread.sleep(1000/60);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if(Controlador.getInstancia().getCiclo()% 80==0&& Enemigo.getInstancia().getArregloMisiles().isEmpty()) {
+			Nivel.getInstancia().setNumNivel(Nivel.getInstancia().getNumNivel()+1);
+			++control;
+			System.out.println("puntaje del nivel "+Puntaje.getInstancia().calcularPuntaje());
+			Juego.getInstancia().nuevoNivel(Nivel.getInstancia().getNumNivel(),control);
+			if ((control==3)|| (control==1)) {
+				Nivel.getInstancia().setMultPuntaje(Nivel.getInstancia().getMultPuntaje()+1);
+			}
+			Enemigo.getInstancia().inicializarCantMisiles();
+		//}
+	}
+	System.out.println("GAME OVER");
+	System.out.println("puntaje total : "+Puntaje.getInstancia().getPuntajeTotal());
+}
+	
+public static Controlador getInstancia() {
+	return Controlador.instancia;
+}
+}
+

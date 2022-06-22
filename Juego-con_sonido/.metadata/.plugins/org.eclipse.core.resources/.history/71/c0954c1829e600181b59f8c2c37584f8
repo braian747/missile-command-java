@@ -1,0 +1,100 @@
+package misiles;
+
+import gestor.Coordenada;
+import gestor.Nivel;
+import taller2.grafico.Dibujable;
+import taller2.grafico.InformacionDibujable;
+
+public class Bombardero implements Dibujable {
+	private int altura=100; //altura inicial
+	private int posX; //posX donde va a disparar el misil
+	private Coordenada origen=new Coordenada();
+	private Coordenada destino=new Coordenada();
+	private Coordenada actual=new Coordenada();
+	
+	public Coordenada getActual() {
+		return actual;
+	}
+	public void setActual(Coordenada actual) {
+		this.actual = actual;
+	}
+	public Coordenada getOrigen() {
+		return origen;
+	}
+	public void setOrigen(Coordenada origen) {
+		this.origen = origen;
+	}
+	public Coordenada getDestino() {
+		return destino;
+	}
+	public void setDestino(Coordenada destino) {
+		this.destino = destino;
+	}
+	private String nombre;
+	
+	
+	public int getAltura() {
+		return altura;
+	}
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+	public int getPosX() {
+		return posX;
+	}
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Bombardero(String nombre) {
+		this.nombre = nombre;
+		this.altura+= ((Nivel.getInstancia().getNumNivel())*11);
+		if (altura>400) {
+			altura=400;
+		}
+		this.posX = (int)(Math.random() * 525 + 15);
+		this.origen.setX(0);
+		this.origen.setY(altura);
+		this.destino.setX(posX);
+		this.destino.setY(altura);
+		this.actual.setX(origen.getX());
+		this.actual.setY(origen.getY());
+		
+	}
+	public  Coordenada mover() {
+		Coordenada c=new Coordenada();
+		c=obtenerMovimiento(destino);
+		this.actual.setX(this.actual.getX()+c.getX());
+		this.actual.setY(this.actual.getY()+c.getY());
+		if (actual.getX()>posX) {
+			disparar();
+		}
+		return actual;
+	}	
+	public Coordenada obtenerMovimiento(Coordenada destino) {
+		int movimientoX; 
+		int movimientoY;
+		int distanciaY = destino.getY()-getActual().getY();
+		int distanciaX = destino.getX()-getActual().getX();
+		double a = Math.atan2(distanciaY, distanciaX);
+		movimientoY = (int) (Math.sin(a));
+		movimientoX = (int) (Math.cos(a));
+		Coordenada c= new Coordenada(movimientoX,movimientoY);
+		return c;
+		}
+	
+	public void disparar() {
+		MBI misil=new MBI(destino, origen, Nivel.getInstancia().getVelMBI());
+		
+	}
+	@Override
+	public InformacionDibujable getInformacionDibujable() {
+		InformacionDibujable d= new InformacionDibujable(posX,altura,'b');		
+		return d;
+	}
+}

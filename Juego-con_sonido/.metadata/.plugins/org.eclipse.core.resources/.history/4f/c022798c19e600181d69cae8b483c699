@@ -1,0 +1,22 @@
+package Interfaz;
+
+import java.awt.Label;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+
+public class VentanaRanking extends JFrame{
+
+		private Label label; 
+		public VentanaRanking (){
+			JScrollPane panel=new JScrollPane();
+			label = new Label("REGLAS DEL JUEGO"); 
+			panel.add(label);
+			add(label);
+			setTitle("Reglas del Juego");
+			setSize(500, 600);
+			setVisible(true); 
+			setResizable(false);
+		}
+	}
+}

@@ -1,0 +1,19 @@
+package Interfaz;
+
+import java.awt.Label;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+
+public class VentanaConfiguracion extends JFrame {
+		private Label label; 
+		public VentanaConfiguracion (){
+			label = new Label("._____."); 
+			add(label);
+			setTitle("Configuracion");
+			setSize(500, 600);
+			setVisible(true); 
+			setResizable(false);
+		}
+	}
+}

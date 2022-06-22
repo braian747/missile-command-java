@@ -1,0 +1,76 @@
+package Interfaz;
+
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import estructuras.Base;
+import estructuras.Ciudad;
+import gestor.Juego;
+import jugadores.Enemigo;
+import jugadores.Jugador;
+import misiles.Misil;
+import misiles.MisilKrytoliano;
+
+public class PanelJuego extends JPanel{
+	private static PanelJuego instancia=new PanelJuego();
+	private URL url = getClass().getResource("/imagenes/fondo.jpg/");
+	Image img= new ImageIcon(url).getImage();
+	private Label label;
+	private JButton b=new JButton();
+	private  PanelJuego() {
+		setLayout(new BorderLayout());
+		JPanel panel=new JPanel();
+		panel.setLayout(new BorderLayout());
+		add(panel,BorderLayout.NORTH);
+		b= new JButton("Atras");
+		panel.add(b,BorderLayout.WEST);
+		b.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {	
+				VentanaPrincipal.getInstancia().setContentPane(PanelMenu.getInstancia());
+			}
+		});
+		label = new Label("JUEGO"); 
+		panel.add(label,BorderLayout.EAST);
+	}
+		
+	
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.drawImage(img, 0, -28,480,525, this);
+		setOpaque(false);
+	}
+	@Override
+	public void paintComponents(Graphics g) {
+		super.paintComponents(g);
+		for (MisilKrytoliano m:Enemigo.getInstancia().getArregloMisiles()) {
+			g.drawImage(img,m.getActual().getX(), m.getActual().getY(), 10, 10, null);
+		}
+		for (Misil m: Jugador.getInstancia().getMisilesDisparados()) {
+			g.drawImage(img, m.getActual().getX(), m.getActual().getY(), null);
+		}
+		for (Base b:Juego.getInstancia().getBases()) {
+			g.drawImage(img, b.getPos().getX(), b.getPos().getY(), null);
+		}	for (Ciudad c:Juego.getInstancia().getCiudades()) {
+			g.drawImage(img, c.getPos().getX(), c.getPos().getY(), null);
+		}super.paintComponents(g);
+
+	}
+//	//paint component dentro panel 
+//}
+	public static PanelJuego getInstancia() {
+	return PanelJuego.instancia;
+}
+}

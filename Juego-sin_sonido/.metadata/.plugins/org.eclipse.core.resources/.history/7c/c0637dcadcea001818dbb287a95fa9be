@@ -1,0 +1,43 @@
+package Interfaz;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+
+
+import java.awt.*;
+
+import java.io.IOException;
+import java.net.URL;
+
+import javax.swing.*;
+import javax.imageio.ImageIO;
+
+import gestor.Controlador;
+import gestor.Juego;
+
+public class VentanaPrincipal extends JFrame  {
+	private static VentanaPrincipal instancia=new VentanaPrincipal();
+	private JPanel reglas = new VentanaReglas();
+	private JPanel menu=new PanelMenu();
+	private JPanel ranking=new PanelRanking();
+	private VentanaPrincipal (){
+		add(menu);
+		add(ranking);
+		add(reglas);
+		
+		setContentPane(reglas);
+		setTitle("Missile Command");
+		setSize(480, 525);
+		setVisible(true); 
+		setResizable(false);
+	}
+	
+	@Override
+	public void paint(Graphics g) {
+	super.paintComponents(g);
+	}
+	public static VentanaPrincipal getInstancia() {
+		return VentanaPrincipal.instancia;
+	}
+}

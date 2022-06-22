@@ -1,0 +1,89 @@
+package Interfaz;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import estructuras.Base;
+import estructuras.Ciudad;
+import gestor.Controlador;
+import gestor.Juego;
+import jugadores.Enemigo;
+import jugadores.Jugador;
+import misiles.Misil;
+import misiles.MisilKrytoliano;
+
+public class PanelMenu extends JPanel{
+	private static PanelMenu instancia=new PanelMenu();
+	private URL url = getClass().getResource("/imagenes/images.jpg/");
+    Image img= new ImageIcon(url).getImage();
+	private JButton b=new JButton();
+	private Label label;
+	private PanelMenu() {
+		setLayout(new BorderLayout()); 
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLUE);
+		JPanel panel2 = new JPanel();
+		BorderLayout superior= new BorderLayout(); 
+		BorderLayout central= new BorderLayout(); 
+		panel2.setOpaque(false);
+		panel.setLayout(superior); //
+		add(panel,BorderLayout.NORTH);
+		panel2.setPreferredSize(new Dimension(300, 70));
+		panel2.setLayout(central);
+		panel2.setPreferredSize(new Dimension(10, 50));
+		add(panel2,BorderLayout.SOUTH);
+		b= new JButton("Reglas de Juego");
+		panel2.add(b,BorderLayout.WEST);
+		b.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {							 
+				VentanaPrincipal.getInstancia().setContentPane(PanelReglas.getInstancia());
+			}
+		});
+		b= new JButton("A jugar!");
+		panel2.add(b,BorderLayout.CENTER);		
+		b.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {	
+				//VentanaPrincipal.getInstancia().setContentPane(PanelJuego.getInstancia()); lo movi a controlador 
+				Controlador.getInstancia().run();
+			}
+		});
+		b= new JButton("Ranking");
+		panel2.add(b,BorderLayout.EAST);
+		b.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {	
+				VentanaPrincipal.getInstancia().setContentPane(PanelRanking.getInstancia());
+			}
+		});
+		b= new JButton("Configuracion");
+		panel.add(b,BorderLayout.EAST);
+		b.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				VentanaPrincipal.getInstancia().setContentPane(PanelConfiguracion.getInstancia());
+			}
+		});
+		label = new Label("MENU"); 
+		panel.add(label,BorderLayout.EAST);
+}
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.drawImage(img, 0, 0,480,447, this);
+		setOpaque(false);
+
+	}
+	public static PanelMenu getInstancia() {
+	return PanelMenu.instancia;
+}
+}
